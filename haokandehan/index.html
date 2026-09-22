@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩国电影推荐网 - 汇集全球最热门、评分最高的韩国电影作品。提供剧情简介、演员阵容、观影指南及最新韩影资讯，助您发现真正的神作。">
+    <meta name="keywords" content="韩国电影推荐,好看的韩国电影,韩影排行榜,高分韩剧,韩国犯罪片,韩国爱情片">
+    <title>韩国电影推荐-全球高分韩影精选与观影指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --secondary-color: #b81d24;
+            --bg-color: #141414;
+            --card-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --accent-gold: #f5c518;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: background-color 0.3s;
+        }
+
+        header.scrolled {
+            background-color: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            color: var(--text-main);
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            z-index: -1;
+            filter: brightness(0.4);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .section-more {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            padding-top: 150%; /* 2:3 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .poster-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.8);
+            color: var(--accent-gold);
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .genre-tag {
+            color: #888;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* Feature Section (Why Watch) */
+        .feature-section {
+            background-color: #1a1a1a;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Filter Tabs */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: var(--text-sub);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: white;
+            color: black;
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movie-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container header-inner">
+            <a href="#" class="logo">K-MOVI<span>ES</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#top10">Top 10 排行</a></li>
+                    <li><a href="#genres">类型推荐</a></li>
+                    <li><a href="#news">最新资讯</a></li>
+                    <li><a href="#guide">观影指南</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索电影、导演或演员...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://picsum.photos/seed/parasite/1920/1080" alt="Parasite Background" class="hero-bg">
+            <div class="container hero-content">
+                <span class="hero-tag">年度重磅推荐</span>
+                <h1>打破阶级的黑色幽默：<br>寄生虫</h1>
+                <p>奉俊昊执导的奥斯卡最佳影片。一部关于阶级差异、生存挣扎与荒诞现实的深刻杰作。在这个封闭的豪宅里，命运的下水道正在悄然改变。</p>
+                <div>
+                    <a href="#top10" class="btn">开始探索</a>
+                    <a href="#guide" class="btn btn-outline">了解剧情</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Watch Section -->
+        <section class="feature-section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎭</div>
+                        <h3>深度剧情</h3>
+                        <p>韩国电影擅长挖掘人性阴暗面与社会议题，每一个镜头都充满了隐喻与张力。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎬</div>
+                        <h3>精湛演技</h3>
+                        <p>从影帝到影后，韩国演员以极具爆发力的表演著称，为角色注入灵魂。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>快节奏叙事</h3>
+                        <p>不同于传统韩剧的拖沓，韩国电影节奏紧凑，反转频出，观影体验极佳。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & Category -->
+        <section id="genres">
+            <div class="container">
+                <div class="filter-bar">
+                    <button class="filter-btn active">全部</button>
+                    <button class="filter-btn">犯罪悬疑</button>
+                    <button class="filter-btn">爱情剧情</button>
+                    <button class="filter-btn">惊悚恐怖</button>
+                    <button class="filter-btn">动作战争</button>
+                    <button class="filter-btn">文艺传记</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Rated Movies -->
+        <section id="top10">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">高分韩影必看榜单</h2>
+                    <a href="#" class="section-more">查看完整榜单 &rarr;</a>
+                </div>
+                
+                <div class="movie-grid">
+                    <!-- Movie Card 1 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.6</span>
+                            <img src="https://picsum.photos/seed/parasite2/400/600" alt="Parasite Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">寄生虫</h3>
+                            <div class="movie-meta">
+                                <span>2019</span>
+                                <span>剧情/犯罪</span>
+                            </div>
+                            <span class="genre-tag">奉俊昊</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 2 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.5</span>
+                            <img src="https://picsum.photos/seed/silence/400/600" alt="Silent Sea Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">寂静之地</h3>
+                            <div class="movie-meta">
+                                <span>2018</span>
+                                <span>恐怖/惊悚</span>
+                            </div>
+                            <span class="genre-tag">约翰·卡拉辛斯基</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 3 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 9.0</span>
+                            <img src="https://picsum.photos/seed/oldboy/400/600" alt="Oldboy Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">老男孩</h3>
+                            <div class="movie-meta">
+                                <span>2003</span>
+                                <span>动作/惊悚</span>
+                            </div>
+                            <span class="genre-tag">朴赞郁</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 4 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.2</span>
+                            <img src="https://picsum.photos/seed/assassin/400/600" alt="Assassination Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">暗杀</h3>
+                            <div class="movie-meta">
+                                <span>2015</span>
+                                <span>动作/历史</span>
+                            </div>
+                            <span class="genre-tag">崔东勋</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 5 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.8</span>
+                            <img src="https://picsum.photos/seed/seven/400/600" alt="Se7en Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">杀人回忆</h3>
+                            <div class="movie-meta">
+                                <span>2003</span>
+                                <span>悬疑/惊悚</span>
+                            </div>
+                            <span class="genre-tag">奉俊昊</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 6 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 7.9</span>
+                            <img src="https://picsum.photos/seed/decision/400/600" alt="The Attorney Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">辩护人</h3>
+                            <div class="movie-meta">
+                                <span>2013</span>
+                                <span>剧情/传记</span>
+                            </div>
+                            <span class="genre-tag">闵斗植</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 7 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.4</span>
+                            <img src="https://picsum.photos/seed/brotherhood/400/600" alt="Brotherhood Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">共同犯罪</h3>
+                            <div class="movie-meta">
+                                <span>2012</span>
+                                <span>犯罪/剧情</span>
+                            </div>
+                            <span class="genre-tag">张哲洙</span>
+                        </div>
+                    </article>
+
+                    <!-- Movie Card 8 -->
+                    <article class="movie-card">
+                        <div class="poster-wrapper">
+                            <span class="rating-badge">★ 8.1</span>
+                            <img src="https://picsum.photos/seed/golden/400/600" alt="The Drug King Poster">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="movie-title">黄金路</h3>
+                            <div class="movie-meta">
+                                <span>2018</span>
+                                <span>剧情/犯罪</span>
+                            </div>
+                            <span class="genre-tag">金容钧</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">新手观影指南</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                    <div>
+                        <h3 style="margin-bottom: 1rem; color: var(--primary-color);">如何挑选适合的韩国电影？</h3>
+                        <p style="margin-bottom: 1rem; color: var(--text-sub);">
+                            韩国电影类型丰富，从现实主义题材到商业爽片应有尽有。对于初次接触的观众，建议从以下几部经典作品入手：
+                        </p>
+                        <ul style="color: var(--text-sub); line-height: 2;">
+                            <li><strong>入门必看：</strong>《寄生虫》、《辩护人》、《老男孩》</li>
+                            <li><strong>心理惊悚：</strong>《小姐》、《哭声》、《釜山行》</li>
+                            <li><strong>爱情治愈：</strong>《假如爱有天意》、《狼的诱惑》</li>
+                        </ul>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 2rem; border-radius: 8px;">
+                        <h4 style="margin-bottom: 1rem;">常见问题 (FAQ)</h4>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h5 style="color: white; margin-bottom: 0.5rem;">Q: 韩国电影分级制度是怎样的？</h5>
+                            <p style="color: var(--text-sub); font-size: 0.9rem;">韩国电影主要分为12+,15+,19+三个等级，部分题材涉及暴力或成人内容，请根据自身情况选择。</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h5 style="color: white; margin-bottom: 0.5rem;">Q: 在哪里可以观看正版韩国电影？</h5>
+                            <p style="color: var(--text-sub); font-size: 0.9rem;">推荐使用Netflix、Disney+、Amazon Prime Video等流媒体平台，或关注国内正规视频网站的版权专区。</p>
+                        </div>
+                        <div>
+                            <h5 style="color: white; margin-bottom: 0.5rem;">Q: 韩国电影和韩剧有什么区别？</h5>
+                            <p style="color: var(--text-sub); font-size: 0.9rem;">电影通常时长在90分钟至150分钟之间，更注重单一故事的完整性和视觉冲击力；韩剧则更注重长篇叙事和人物情感的细腻刻画。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">
+                        K-MOVIES 致力于为亚洲电影爱好者提供最优质的韩国电影资源与深度影评。我们相信电影是连接世界的桥梁。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">最新上映</a></li>
+                        <li><a href="#">高分榜单</a></li>
+                        <li><a href="#">导演作品集</a></li>
+                        <li><a href="#">演员资料库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>分类浏览</h4>
+                    <ul>
+                        <li><a href="#">犯罪悬疑</a></li>
+                        <li><a href="#">爱情剧情</a></li>
+                        <li><a href="#">科幻动作</a></li>
+                        <li><a href="#">历史传记</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>订阅更新</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 1rem;">获取最新韩影资讯与片单推荐。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 0.5rem; background: #333; border: 1px solid #444; color: white; border-radius: 4px;">
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 K-MOVIES 韩国电影推荐网. All Rights Reserved. 本站仅用于展示，内容仅供参考。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Simple Tab Interaction (Visual Only)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+                      </html>
