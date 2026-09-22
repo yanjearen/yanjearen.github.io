@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2046在线观看 - 沉浸式影视观看平台，提供高清流畅的《2046》电影在线播放、剧情介绍、影评分析及幕后花絮。">
+    <meta name="keywords" content="2046在线观看, 2046电影, 王家卫, 沉默的大多数, 在线电影">
+    <title>2046在线观看 - 沉默与遗忘的极致影像</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #d4af37;
+            --accent-hover: #f9ce46;
+            --nav-bg: rgba(15, 15, 15, 0.95);
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #2a2a2a;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-color)), url('https://picsum.photos/seed/2046movie/1920/1080') no-repeat center center/cover;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            aspect-ratio: 2/3;
+            overflow: hidden;
+        }
+
+        .poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-card:hover .poster-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .movie-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .card-info {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rank-num.top-1 { background-color: #d4af37; }
+        .rank-num.top-2 { background-color: #c0c0c0; }
+        .rank-num.top-3 { background-color: #cd7f32; }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* Synopsis Section */
+        .synopsis-section {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+        }
+
+        .synopsis-text {
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .synopsis-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 3rem 0;
+            border-top: 1px solid #222;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .main-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .search-box { display: none; }
+            .movie-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">2046影院</div>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">电影</a>
+                <a href="#">电视剧</a>
+                <a href="#">综艺</a>
+                <a href="#">我的片单</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索影片...">
+                <button>&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>2046在线观看</h1>
+                <p>王家卫导演经典之作。在虚构的2046年，等待是唯一的出口。一段关于记忆、爱情与遗忘的漫长旅程。</p>
+                <div>
+                    <a href="#player" class="btn">立即播放</a>
+                    <a href="#details" class="btn btn-outline">查看详情</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-grid">
+                <!-- Content Area -->
+                <div class="content-area">
+                    <section id="details">
+                        <h2 class="section-title">影片简介</h2>
+                        <div class="synopsis-section">
+                            <p class="synopsis-text">
+                                <strong>《2046》</strong> 是导演王家卫的第六部电影，也是其“迷失东京”三部曲的最后一部。影片设定在2046年，一个充满未来感却又与过去紧密相连的空间。主人公周慕云（梁朝伟 饰）在新加坡经营一家名为“2046”的酒店，等待着他无法挽回的过去。
+                            </p>
+                            <p class="synopsis-text">
+                                电影通过周慕云与多位女性（如白玲、苏丽珍、王靖雯）的情感纠葛，探讨了记忆的不可靠性与爱情的虚幻本质。影片融合了科幻设定与经典的王家卫式叙事风格，色彩斑斓却又带着淡淡的忧伤。每一帧画面都如同一幅精美的油画，配乐由梅林茂操刀，营造出独特的时空氛围。
+                            </p>
+                            <p class="synopsis-text">
+                                对于搜索“2046在线观看”的观众来说，这不仅是一次观影体验，更是一次对王家卫美学风格的沉浸式探索。
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="section-title">相关推荐</h2>
+                        <div class="movie-grid">
+                            <article class="movie-card">
+                                <div class="poster-wrapper">
+                                    <img src="https://picsum.photos/seed/in_the_mood/300/450" alt="花样年华海报">
+                                    <div class="play-overlay">
+                                        <span class="play-icon">&#9658;</span>
+                                    </div>
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-title">花样年华</h3>
+                                    <div class="card-meta">
+                                        <span>2000</span>
+                                        <span>爱情/剧情</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="movie-card">
+                                <div class="poster-wrapper">
+                                    <img src="https://picsum.photos/seed/grandbudapest/300/450" alt="布达佩斯大饭店海报">
+                                    <div class="play-overlay">
+                                        <span class="play-icon">&#9658;</span>
+                                    </div>
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-title">布达佩斯大饭店</h3>
+                                    <div class="card-meta">
+                                        <span>2014</span>
+                                        <span>喜剧/冒险</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="movie-card">
+                                <div class="poster-wrapper">
+                                    <img src="https://picsum.photos/seed/la_dame_au_camelia/300/450" alt="茶花女海报">
+                                    <div class="play-overlay">
+                                        <span class="play-icon">&#9658;</span>
+                                    </div>
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-title">茶花女</h3>
+                                    <div class="card-meta">
+                                        <span>2013</span>
+                                        <span>爱情/剧情</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="movie-card">
+                                <div class="poster-wrapper">
+                                    <img src="https://picsum.photos/seed/la_haine/300/450" alt="痛苦与荣耀海报">
+                                    <div class="play-overlay">
+                                        <span class="play-icon">&#9658;</span>
+                                    </div>
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-title">痛苦与荣耀</h3>
+                                    <div class="card-meta">
+                                        <span>2019</span>
+                                        <span>剧情/传记</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">观看排行榜</h3>
+                        <ul class="rank-list">
+                            <li><span class="rank-num top-1">1</span> <a href="#">花样年华</a></li>
+                            <li><span class="rank-num top-2">2</span> <a href="#">重庆森林</a></li>
+                            <li><span class="rank-num top-3">3</span> <a href="#">阿飞正传</a></li>
+                            <li><span class="rank-num">4</span> <a href="#">东邪西毒</a></li>
+                            <li><span class="rank-num">5</span> <a href="#">堕落天使</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门标签</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag">王家卫</a>
+                            <a href="#" class="tag">梁朝伟</a>
+                            <a href="#" class="tag">张曼玉</a>
+                            <a href="#" class="tag">午夜电影</a>
+                            <a href="#" class="tag">艺术电影</a>
+                            <a href="#" class="tag">高分辨率</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">关于本站</h3>
+                        <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">
+                            本站致力于提供高质量的经典电影在线观看服务，汇集了影史经典与独立佳作。请支持正版影视作品。
+                        </p>
+                        <a href="#" class="btn" style="width: 100%; text-align: center;">联系我们</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 300px;">
+                    <div class="logo" style="margin-bottom: 1rem;">2046影院</div>
+                    <p style="color: #666; font-size: 0.9rem; max-width: 400px;">
+                        专注于为影迷提供优质的观影体验。在这里，每一部经典电影都能找到它的知音。
+                    </p>
+                </div>
+                <div class="footer-col" style="flex: 1; min-width: 150px;">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">最新上映</a></li>
+                        <li><a href="#">高分榜单</a></li>
+                        <li><a href="#">导演专题</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="flex: 1; min-width: 150px;">
+                    <h4>法律声明</h4>
+                    <ul>
+                        <li><a href="#">版权信息</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 2046在线观看. All rights reserved. 仅供学习交流使用.
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
